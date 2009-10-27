@@ -1,0 +1,29 @@
+To run the application need to perform the following task.
+APPLICATION IS USING JRAILS INSTEAD OF PROTOTYPE. 
+
+
+Javascript Libraries
+1. jQuery
+2. jQuery LightBox.
+3. jQuery Slideshow.
+
+Working environment.
+Ruby 1.8.7
+Ruby on Rails 2.3.4
+Database MySQL 5.X
+
+1. Run sudo rake gems:install #THIS WILL INSTALL AUTHLOGIC IF THE AUTHLOGIC IS NOT INSTALLED ON LOCAL SYSTEM..
+2. rake db:create #To create database
+3. rake db:migrate #To create a tables
+
+
+The following plugins is used in the application
+1. Authlogic.
+2. tabs_helper
+3. acts_as_taggable_on_steroids
+4. jrails
+5. paperclip
+
+
+The following gems is used in the application 
+1. rails 2.3.4

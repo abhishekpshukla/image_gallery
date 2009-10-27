@@ -1,0 +1,38 @@
+(in /home/abhishek/Documents/projects/www/cggi/image)
+           images GET    /images(.:format)                 {:controller=>"images", :action=>"index"}
+                  POST   /images(.:format)                 {:controller=>"images", :action=>"create"}
+        new_image GET    /images/new(.:format)             {:controller=>"images", :action=>"new"}
+       edit_image GET    /images/:id/edit(.:format)        {:controller=>"images", :action=>"edit"}
+            image GET    /images/:id(.:format)             {:controller=>"images", :action=>"show"}
+                  PUT    /images/:id(.:format)             {:controller=>"images", :action=>"update"}
+                  DELETE /images/:id(.:format)             {:controller=>"images", :action=>"destroy"}
+   view_by_bucket        /view_by_bucket/:id               {:controller=>"images", :action=>"view_by_bucket"}
+    search_images GET    /search_images(.:format)          {:controller=>"search_images", :action=>"index"}
+                  POST   /search_images(.:format)          {:controller=>"search_images", :action=>"create"}
+ new_search_image GET    /search_images/new(.:format)      {:controller=>"search_images", :action=>"new"}
+edit_search_image GET    /search_images/:id/edit(.:format) {:controller=>"search_images", :action=>"edit"}
+     search_image GET    /search_images/:id(.:format)      {:controller=>"search_images", :action=>"show"}
+                  PUT    /search_images/:id(.:format)      {:controller=>"search_images", :action=>"update"}
+                  DELETE /search_images/:id(.:format)      {:controller=>"search_images", :action=>"destroy"}
+    search_by_tag        /search_by_tag                    {:controller=>"search_images", :action=>"search_by_tag"}
+ search_by_bucket        /search_by_bucket                 {:controller=>"search_images", :action=>"search_by_bucket"}
+      new_account GET    /account/new(.:format)            {:controller=>"users", :action=>"new"}
+     edit_account GET    /account/edit(.:format)           {:controller=>"users", :action=>"edit"}
+          account GET    /account(.:format)                {:controller=>"users", :action=>"show"}
+                  PUT    /account(.:format)                {:controller=>"users", :action=>"update"}
+                  DELETE /account(.:format)                {:controller=>"users", :action=>"destroy"}
+                  POST   /account(.:format)                {:controller=>"users", :action=>"create"}
+            users GET    /users(.:format)                  {:controller=>"users", :action=>"index"}
+                  POST   /users(.:format)                  {:controller=>"users", :action=>"create"}
+         new_user GET    /users/new(.:format)              {:controller=>"users", :action=>"new"}
+        edit_user GET    /users/:id/edit(.:format)         {:controller=>"users", :action=>"edit"}
+             user GET    /users/:id(.:format)              {:controller=>"users", :action=>"show"}
+                  PUT    /users/:id(.:format)              {:controller=>"users", :action=>"update"}
+                  DELETE /users/:id(.:format)              {:controller=>"users", :action=>"destroy"}
+ new_user_session GET    /user_session/new(.:format)       {:controller=>"user_sessions", :action=>"new"}
+edit_user_session GET    /user_session/edit(.:format)      {:controller=>"user_sessions", :action=>"edit"}
+     user_session GET    /user_session(.:format)           {:controller=>"user_sessions", :action=>"show"}
+                  PUT    /user_session(.:format)           {:controller=>"user_sessions", :action=>"update"}
+                  DELETE /user_session(.:format)           {:controller=>"user_sessions", :action=>"destroy"}
+                  POST   /user_session(.:format)           {:controller=>"user_sessions", :action=>"create"}
+             root        /                                 {:controller=>"user_sessions", :action=>"new"}

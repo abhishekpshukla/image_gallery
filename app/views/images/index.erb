@@ -1,0 +1,3 @@
+<p>Welcome to image gallery.</p>
+<% unless !current_user %><p><%= link_to "Upload Image", new_image_path %></p><%end%>
+<%= render :partial => "gallery" %>

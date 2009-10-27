@@ -1,0 +1,16 @@
+<%= javascript_include_tag "jquery/jquery.lightbox-0.5.js"  %>
+<%= stylesheet_link_tag "jquery/jquery.lightbox-0.5"  %>
+<script type="text/javascript">
+    $(function() {
+        $('#gallery a').lightBox();
+    });
+    </script>
+
+<%for image in @images %>
+<div id="gallery" style="float:left; padding-right:100px;">
+  <a href=<%= image.avatar.url(:large) %>>
+    <%= image_tag image.avatar.url(:thumb), :title => image.user.bucket_name %><br />
+    <p>Tags:&nbsp;<%= image.tag_list %></p>
+  </a>
+  </div>
+<%end%>

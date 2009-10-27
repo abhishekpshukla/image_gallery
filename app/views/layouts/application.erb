@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+
+Name       : Republic  
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20090910
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Image Gallery</title>
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+<%= javascript_include_tag :defaults %>
+<%= stylesheet_link_tag "style" %>
+</head>
+<body>
+<div id="wrapper">
+	<div id="header">
+		<div id="logo">
+			<h1><a href="#">Image Gallery</a></h1>
+		</div>
+	</div>
+	<!-- end #header -->
+	<div id="menu">
+          <% tabs :id=>"mainMenu" do |tab| %>
+            <%= tab.image "Image Gallery", images_path %>
+            <% if !current_user %>
+              <%= tab.user "Register", new_account_path %>
+              <%= tab.user_session "Log In", new_user_session_path %>
+            <% else %>
+              <%= tab.user "My Account", account_path %>
+              <%= tab.null "Logout", user_session_path, :method => :delete, :confirm => "Are you sure you want to logout?" %>
+            <% end %>
+
+	<%end%>
+	</div>
+	<!-- end #menu -->
+	<div id="page">
+	<div id="page-bgtop">
+	<div id="page-bgbtm">
+          <div id="content">
+            <%= yield %>
+            <div style="clear: both;">&nbsp;</div>
+          </div>
+		<!-- end #content -->
+          <div id="sidebar">
+            <ul>
+              <li>
+                <div id="search"><div style="padding-left:20px;">Search Bucket</div>
+                   <% form_tag search_by_bucket_path, :method => :get do %>
+                    <div>
+                      <%= text_field_tag :bucket_name, "", :id=>"search-text" %>
+                      <%= submit_tag 'Go', :id=>"search-submit" %>
+                    </div>
+                  <%end%>
+		</div>
+              </li>
+              <li>
+                <div id="search"><div style="padding-left:20px;">Search Images By Tag</div>
+                  <% form_tag search_by_tag_path do %>
+                    <div>
+                      <%= text_field_tag :tag_list, "", :id=>"search-text" %>
+                      <%= submit_tag 'Go', :id=>"search-submit" %>
+                    </div>
+                  <%end%>
+		</div>
+                <div style="clear: both;">&nbsp;</div>
+              </li>
+              <% unless @buckets.blank? %>
+                <li>
+                <h2>Buckets</h2>
+		<ul>
+                  <%  for bucket in @buckets %>
+                  <li><%= link_to bucket.bucket_name, view_by_bucket_path(:id => bucket.id) %></li>
+                  <%end%>
+		</ul>
+              </li>
+              <%end%>
+            </ul>
+          </div>
+		<!-- end #sidebar -->
+		<div style="clear: both;">&nbsp;</div>
+	</div>
+	</div>
+	</div>
+	<!-- end #page -->
+</div>
+	<div id="footer">
+		<p>Copyright (c) 2008 Sitename.com. All rights reserved. Design by <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>.</p>
+	</div>
+	<!-- end #footer -->
+</body>
+</html>

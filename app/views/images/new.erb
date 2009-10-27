@@ -1,0 +1,15 @@
+<h2>Upload new image</h2>
+<h4><%= flash[:notice] %><% flash.discard %></h4>
+<% form_for(@image,:html => { :multipart => true }) do |f| %>
+  <%= f.error_messages %>
+  <p>
+    Photo<br />
+    <%= f.file_field :avatar %>
+  </p><br /><br />
+  <p>
+      <%= f.label :tag_list %><br />
+  <%= f.text_field :tag_list, :size => 30 %>
+
+  </p>
+  <p><%= submit_tag 'Submit' %></p>
+<% end %>

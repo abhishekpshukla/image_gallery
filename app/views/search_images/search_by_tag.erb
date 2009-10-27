@@ -1,0 +1,6 @@
+<% unless @images.blank? %>
+<p>Search result for: <%= @result %></p>
+  <%= render :partial => "images/gallery" %>
+  <%else%>
+  <p>Sorry there is no image found please try again.</p>
+  <%end%>

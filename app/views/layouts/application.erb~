@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+
+Name       : Republic  
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20090910
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Attendance System</title>
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+<%= javascript_include_tag :defaults %>
+<%= stylesheet_link_tag "style" %>
+</head>
+<body>
+<div id="wrapper">
+	<div id="header">
+		<div id="logo">
+			<h1><a href="#">Attendance System</a></h1>
+		</div>
+	</div>
+	<!-- end #header -->
+	<div id="menu">
+          <% tabs :id=>"mainMenu" do |tab| %>
+            <% unless current_user.nil? %>
+              <% if current_user.type.eql?('Admin')%>
+                <%= tab.mydashboard "DashBoard", admin_dashboard_path, {} %>
+                <%#= tab.employees "Add Employee", new_admin_employee_path, {} %>
+                <%= tab.employees "List Employee", admin_employees_path, {} %>
+              <%else%>
+                <%= tab.home "Home", employee_home_path %>
+                <%= tab.time_sheet "Attendace", employee_time_sheet_path %>
+              <%end%>
+                <%= tab.user_session 'Logout', user_session_path, {:method => :delete} %>
+            <%else%>
+              <%= tab.user_session "Home", root_path, {} %>
+            <%end%>
+	<%end%>
+	</div>
+	<!-- end #menu -->
+	<div id="page">
+	<div id="page-bgtop">
+	<div id="page-bgbtm">
+          <div id="content">
+            <!--div class="post">
+              <h2 class="title"><a href="#">Welcome to Attendance System</a></h2>
+            </div-->
+            <%= yield %>
+            <div style="clear: both;">&nbsp;</div>
+          </div>
+		<!-- end #content -->
+		<!-- end #sidebar -->
+		<div style="clear: both;">&nbsp;</div>
+	</div>
+	</div>
+	</div>
+	<!-- end #page -->
+</div>
+	<div id="footer">
+		<p>Copyright (c) 2008 Sitename.com. All rights reserved. Design by <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>.</p>
+	</div>
+	<!-- end #footer -->
+</body>
+</html>
