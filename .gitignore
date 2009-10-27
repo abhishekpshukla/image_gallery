@@ -10,5 +10,6 @@ tmp/*
 log/*
 private/images/*
 public/cache/*
+public/system/*
 nbproject/*
 .DS_Store

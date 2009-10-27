@@ -35,7 +35,6 @@ Released   : 20090910
               <%= tab.user "Register", new_account_path %>
               <%= tab.user_session "Log In", new_user_session_path %>
             <% else %>
-              <%= tab.user "My Account", account_path %>
               <%= tab.null "Logout", user_session_path, :method => :delete, :confirm => "Are you sure you want to logout?" %>
             <% end %>
 
